@@ -1,0 +1,74 @@
+import React from "react";
+import { Ionicons } from "@expo/vector-icons";
+
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { RestaurantsNavigator } from "./restaurants.navigator";
+import { MapScreen } from "../../features/map/screens/map.screen";
+import { SettingsNavigator } from "./settings.navigator";
+import { CheckoutNavigator } from "./checkout.navigator";
+import { colors } from "../../infrastructure/theme/colors";
+import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
+import { LocationContextProvider } from "../../services/location/location.context";
+import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
+import { CartContextProvider } from "../../services/cart/cart.context";
+
+const TAB_ICON = {
+  Restaurant: "md-restaurant",
+  Checkout: "md-cart",
+  Map: "md-map",
+  Settings: "md-settings",
+};
+
+const Tab = createBottomTabNavigator();
+
+const createScreenOptions = ({ route }) => {
+  const iconName = TAB_ICON[route.name];
+  return {
+    tabBarIcon: ({ size, color }) => (
+      <Ionicons name={iconName} size={size} color={color} />
+    ),
+  };
+};
+
+export const AppNavigator = () => {
+  return (
+    <>
+      <FavouritesContextProvider>
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <CartContextProvider>
+              <Tab.Navigator
+                screenOptions={createScreenOptions}
+                tabBarOptions={{
+                  activeTintColor: colors.brand.primary,
+                  inactiveTintColor: colors.brand.muted,
+                }}
+              >
+                <Tab.Screen
+                  name="Restaurant"
+                  options={{ headerShown: false }}
+                  component={RestaurantsNavigator}
+                />
+                <Tab.Screen
+                  name="Checkout"
+                  options={{ headerShown: false }}
+                  component={CheckoutNavigator}
+                />
+                <Tab.Screen
+                  name="Map"
+                  options={{ headerShown: false }}
+                  component={MapScreen}
+                />
+                <Tab.Screen
+                  name="Settings"
+                  options={{ headerShown: false }}
+                  component={SettingsNavigator}
+                />
+              </Tab.Navigator>
+            </CartContextProvider>
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
+      </FavouritesContextProvider>
+    </>
+  );
+};

@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Photoholic test",
+    "slug": "Photoholic_test",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/photholic.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000c24"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#415870"
+      },
+      "package": "com.shaikh.phot.code.game.Photoholic"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": ""
+  }
+}
