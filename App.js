@@ -15,13 +15,13 @@ import { Navigation } from "./src/infrastructure/navigation";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDd8J4uXCDeR70EZpHhgU9wQbRoxcSVZiY",
-  authDomain: "photohol-e0497.firebaseapp.com",
-  projectId: "photohol-e0497",
-  storageBucket: "photohol-e0497.appspot.com",
-  messagingSenderId: "197321594844",
-  appId: "1:197321594844:web:39933ab83c7ecfa66be119",
-  measurementId: "G-3FYVGYYDQX"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 if (!firebase.apps.length) {
